@@ -2,7 +2,7 @@
 
     $cURLConnection = curl_init();
 
-    curl_setopt($cURLConnection, CURLOPT_URL, 'http://webapi.crisfood.com/api/user/contest');
+    curl_setopt($cURLConnection, CURLOPT_URL, 'https://crisfood.com/api/user/contest');
     curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
 
     $phoneList = curl_exec($cURLConnection);
@@ -66,43 +66,47 @@
             </div>
             <div class="row mt-3" >
                 <div class="col-md-12">
-                    <div class="table-responsive">
-                        <div class="tbl-content" data-wow-duration="1s"
-                        data-wow-delay="0.2s">
-                            <table class="table-hover" cellpadding="0" cellspacing="0" >
-                                <thead class="text-center">
-                                    <th>Position</th>
-                                    <th>Avatar</th>
-                                    <th>Name</th>
-                                    <th>City</th>
-                                    <th>Order Count</th>
-                                    <th>Total Order Value</th>
-                                    <th>Total Referrals</th>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($jsonArrayResponse as $value) { ?>
-                                        <tr style="background-color: <?php if($count == 1){ echo "#ffc10747"; } elseif($count == 2) { echo "#e9ecef"; } elseif($count == 3) { echo "#a0693a59"; } ?>">
-                                            <td class="text-center" style="width:10px"><?php echo $count; ?></td>
-                                            <?php if($value->avatar) {?>
-                                                <td class="text-center" style="width: 100px;"><img
-                                                    src="<?php echo $value->avatar; ?>"
-                                                    style="width: 50px" class="rounded-circle"></td>
-                                            <?php } else { ?>
-                                                <td class="text-center" style="width: 100px;"><img
-                                                    src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png"
-                                                    style="width: 50px" class="rounded-circle"></td>
-                                            <?php } ?>
-                                            <td class="text-center text-capitalize" style="width: 200px;"><?php echo $value->name; ?></td>
-                                            <td class="text-center text-capitalize" style="width: 200px;"><?php echo $value->city; ?></td>
-                                            <td class="text-center" style="width: 200px;"><?php echo $value->order_count; ?></td>
-                                            <td class="text-center" style="width: 200px;">₹<?php echo $value->total_order_value; ?></td>
-                                            <td class="text-center" style="width: 200px;"><?php echo $value->total_referrals; ?></td>
-                                        </tr>
-                                    <?php $count++; } ?>
-                                </tbody>
-                            </table>
+                    <?php if(count($jsonArrayResponse) > 0){ ?>
+                        <div class="table-responsive">
+                            <div class="tbl-content" data-wow-duration="1s"
+                            data-wow-delay="0.2s">
+                                <table class="table-hover" cellpadding="0" cellspacing="0" >
+                                    <thead class="text-center">
+                                        <th>Position</th>
+                                        <th>Avatar</th>
+                                        <th>Name</th>
+                                        <th>City</th>
+                                        <th>Order Count</th>
+                                        <th>Total Order Value</th>
+                                        <th>Total Referrals</th>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($jsonArrayResponse as $value) { ?>
+                                            <tr style="background-color: <?php if($count == 1){ echo "#ffc10747"; } elseif($count == 2) { echo "#e9ecef"; } elseif($count == 3) { echo "#a0693a59"; } ?>">
+                                                <td class="text-center" style="width:10px"><?php echo $count; ?></td>
+                                                <?php if($value->avatar) {?>
+                                                    <td class="text-center" style="width: 100px;"><img
+                                                        src="<?php echo $value->avatar; ?>"
+                                                        style="width: 50px" class="rounded-circle"></td>
+                                                <?php } else { ?>
+                                                    <td class="text-center" style="width: 100px;"><img
+                                                        src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png"
+                                                        style="width: 50px" class="rounded-circle"></td>
+                                                <?php } ?>
+                                                <td class="text-center text-capitalize" style="width: 200px;"><?php echo $value->name; ?></td>
+                                                <td class="text-center text-capitalize" style="width: 200px;"><?php echo $value->city; ?></td>
+                                                <td class="text-center" style="width: 200px;"><?php echo $value->order_count; ?></td>
+                                                <td class="text-center" style="width: 200px;">₹<?php echo $value->total_order_value; ?></td>
+                                                <td class="text-center" style="width: 200px;"><?php echo $value->total_referrals; ?></td>
+                                            </tr>
+                                        <?php $count++; } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
+                    <?php } else { ?>
+                        <h3 class="text-center text-success">Note: Leaderboard will be active in sometime.</h3>
+                    <?php } ?>
                 </div>
             </div>
         </div>
