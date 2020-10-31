@@ -2,7 +2,7 @@
 
     $cURLConnection = curl_init();
 
-    curl_setopt($cURLConnection, CURLOPT_URL, 'http://crisfood.loc/api/user/contest');
+    curl_setopt($cURLConnection, CURLOPT_URL, 'http://webapi.crisfood.com/api/user/contest');
     curl_setopt($cURLConnection, CURLOPT_RETURNTRANSFER, true);
 
     $phoneList = curl_exec($cURLConnection);
