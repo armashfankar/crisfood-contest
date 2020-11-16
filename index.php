@@ -62,7 +62,7 @@
                 <a href="rules-and-regulations.html" class="btn btn-info">View Contest Rules & Prizes</a>
             </div>
             <div class="section-title text-center">
-                <h3 class="lead mt-3" style="color: #000;font-family: 'Roboto';font-size: 28px;">Leaderboard (Top 20)</h3>
+                <h3 class="lead mt-3" style="color: #000;font-family: 'Roboto';font-size: 28px;">Crisfood 2020 Contest Winners</h3>
             </div>
             <div class="row mt-3" >
                 <div class="col-md-12">
